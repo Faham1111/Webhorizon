@@ -1,0 +1,11 @@
+Model Information:
+* title:	Tableau: Charkiv, 28.03.2022
+* source:	https://sketchfab.com/3d-models/tableau-charkiv-28032022-01633764904b4878bb4097ad730b9228
+* author:	grs (https://sketchfab.com/sgrosjean)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Tableau: Charkiv, 28.03.2022" (https://sketchfab.com/3d-models/tableau-charkiv-28032022-01633764904b4878bb4097ad730b9228) by grs (https://sketchfab.com/sgrosjean) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

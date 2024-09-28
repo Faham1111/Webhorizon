@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revibe</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css">
+   
+
+</head>
+<body>
+    <!-- Sticky Navbar -->
+    <nav class="navbar">
+        <!-- Left: Revibe Logo -->
+        <div class="navbar-logo">
+            <a href="#">Revibe</a>
+        </div>
+        
+        <!-- Center: Menu Links -->
+        <div class="navbar-center">
+            <a href="page.html">Home</a>
+            <a href="about.html">About</a>
+            <div class="dropdown">
+                <button class="dropbtn">Categories</button>
+                <div class="dropdown-content">
+                    <a href="products.html?category=electronics">Electronics</a>
+                    <a href="products.html?category=furniture">Furniture</a>
+                    <a href="products.html?category=clothing">Clothing</a>
+                </div>
+            </div>
+            <a href="sell.html">Sell</a>
+
+            <div class="search-container">
+                <input type="text" placeholder="Search..." class="search-input">
+            </div>
+        </div>
+    
+        <!-- Right: Profile Icon -->
+        <div class="navbar-profile">
+            <a href="profile.html"><img src="user.png" alt="Profile" /></a>
+        </div>
+    </nav>
+    
+    <!-- Slider Section -->
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide"><img src="1.png" alt="Product 1"></div>
+            <div class="slide"><a href="products.html"><img src="pic_1.jpeg" alt="Product 2"></a></div>
+            <div class="slide"><a href="products.html"><img src="pic_2.jpeg" alt="Product 3"></a></div>
+            <div class="slide"><a href="products.html"><img src="pic_3.jpeg" alt="Product 4"></a></div>
+            <div class="slide"><a href="products.html"><img src="2.png" alt="Product 5"></a></div>
+        </div>
+    </div>
+
+    <!-- Top Products Section -->
+    <div class="top-products">
+        <h2>Top Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <a href="products.html">
+                <img src="bmw m5.jpeg" alt="Product 1">
+                <h3>Vehicles</h3>
+                <p>$19999.99</p>
+                </a>
+            </div>
+            <div class="product-card">
+                <a href="products.html">
+                <img src="iphone_15_pro_max.jpg" alt="Product 2">
+                <h3>Mobile-Phone Devices</h3>
+                <p>$299.99</p>
+                 </a>
+            </div>
+            <div class="product-card">
+                <a href="products.html">
+                <img src="laptop.jpeg" alt="Product 3">
+                <h3>Laptops</h3>
+                <p>$397.99</p>
+                 </a>
+            </div>
+            <div class="product-card">
+                <a href="products.html">
+                <img src="images.jpeg" alt="Product 4">
+                <h3>TV & Accesories</h3>
+                <p>$498.99</p>
+                 </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonials-container" id="testimonial-slider">
+            <div class="testimonial">
+                <p>"ReVibe helped me sell my old phone quickly. The process was smooth, and I got a great deal!"</p>
+                <h3>— Sarah Johnson</h3>
+            </div>
+            <div class="testimonial">
+                <p>"I love shopping on ReVibe. There’s always a wide variety of items at great prices!"</p>
+                <h3>— Michael Williams</h3>
+            </div>
+            <div class="testimonial">
+                <p>"Selling clothes on ReVibe was a breeze. It's a great platform to declutter and make some money."</p>
+                <h3>— Emily Davis</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+    <img src="arrow.png" alt="Back to Top" />
+    </a>
+
+
+    <!-- Link to external JS file -->
+    <script src="script.js"></script>
+<!-- Recent Listings Section -->
+<div class="top-products">
+    <h2>Recent Listings</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <a href="products.html">
+                <img src="World-Furniture-Online_48-scaled.jpg" alt="Product 1">
+            <h3>Furniture</h3>
+            <p>$19.99</p>
+                </a>
+        </div>
+        <div class="product-card">
+            <a href="products.html">
+                <img src="chair.webp" alt="Product 2">
+            <h3>Office Chair</h3>
+            <p>$29.99</p>
+                </a>
+        </div>
+        <div class="product-card">
+            <a href="products.html">
+                <img src="Brack, Red Second Hand Hero Bikes.jpg" alt="Product 3">
+                <h3>Motor-Cycle</h3>
+                <p>$39.99</p>
+                </a>
+        </div>
+        <div class="product-card">
+            <a href="products.html">
+                <img src="kitchen.jpg" alt="Product 4">
+                <h3>Kitchen</h3>
+                <p>$49.99</p>
+                </a>
+        </div>
+    </div>
+</div>
+
+<!-- Chat Button -->
+<div class="chat-button">
+    <button onclick="toggleChat()">Chat with Us</button>
+</div>
+
+<!-- Chat Modal -->
+<div class="chat-modal" id="chatModal">
+    <div class="chat-content">
+        <div class="chat-header">
+            <span class="chat-title">Support Chat</span>
+            <span class="close" onclick="toggleChat()">&times;</span>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <!-- Chat messages will appear here -->
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="userMessage" placeholder="Type your message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Newsletter Section -->
+<section class="newsletter">
+    <div class="newsletter-container">
+        <h3>Subscribe to our Newsletter</h3>
+        <p>Get the latest updates and offers.</p>
+        <form id="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+</section>
+
+
+ <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <div>
+            <h3>About Revibe</h3>
+            <p>Revibe is a site for peoples who want to buy and sell used products.</p>
+        </div>
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="page.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="privacy.html">privacy Policy</a></li>
+                <li><a href="terms.html">Terms and condition</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <a href="#"><img src="facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        </div>
+        <div class="footer-map">
+            <h3>Find Us Here</h3>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14759.319419861187!2d70.80010265!3d22.36005245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1727461180781!5m2!1sen!2sin" 
+                width="250" 
+                height="200" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 @revibe. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>

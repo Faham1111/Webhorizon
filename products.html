@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Revibe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sticky Navbar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="#">Revibe</a>
+        </div>
+        
+        <div class="navbar-center">
+            <a href="page.html">Home</a>
+            <a href="about.html">About</a>
+            <div class="dropdown">
+                <button class="dropbtn">Categories</button>
+                <div class="dropdown-content">
+                    <a href="products.html?category=electronics">Electronics</a>
+                    <a href="products.html?category=furniture">Furniture</a>
+                    <a href="products.html?category=clothing">Clothing</a>
+                </div>
+            </div>
+            <a href="sell.html">Sell</a>
+
+            <div class="search-container">
+                <input type="text" placeholder="Search..." class="search-input">
+            </div>
+        </div>
+
+        <div class="navbar-profile">
+            <a href="profile.html"><img src="user.png" alt="Profile" /></a>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <h1>Available Products</h1>
+
+        <!-- Filter and Sort Options -->
+        <div class="filter-sort-container">
+            <label for="category-filter">Filter by Category:</label>
+            <select id="category-filter">
+                <option value="">All Categories</option>
+                <option value="electronics">Electronics</option>
+                <option value="furniture">Furniture</option>
+                <option value="clothing">Clothing</option>
+            </select>
+
+            <label for="sort-order">Sort by Price:</label>
+            <select id="sort-order">
+                <option value="asc">Price: Low to High</option>
+                <option value="desc">Price: High to Low</option>
+            </select>
+        </div>
+
+        <div id="products-grid" class="products-grid"></div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <h3>About Revibe</h3>
+                <p>Revibe is a site for people who want to buy and sell used products.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="page.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#"><img src="facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="instagram.png" alt="Instagram"></a>
+            </div>
+            <div class="footer-map">
+                <h3>Find Us Here</h3>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14759.319419861187!2d70.80010265!3d22.36005245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1727461180781!5m2!1sen!2sin" 
+                    width="250" 
+                    height="200" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 @revibe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript to Load Products with Filter and Sort -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const productsGrid = document.getElementById('products-grid');
+            const categoryFilter = document.getElementById('category-filter');
+            const sortOrder = document.getElementById('sort-order');
+
+            // Sample products
+            const products = [
+                {
+                    name: "Smartphone",
+                    description: "Latest model with 128GB storage.",
+                    price: 699,
+                    location: "New York",
+                    mobile: "123-456-7890",
+                    category: "electronics",
+                    image: "smartphone.jpg"
+                },
+                {
+                    name: "Laptop",
+                    description: "Powerful laptop for gaming and work.",
+                    price: 999,
+                    location: "Los Angeles",
+                    mobile: "987-654-3210",
+                    category: "electronics",
+                    image: "lap.jpg"
+                },
+                {
+                    name: "Dining Table",
+                    description: "Stylish wooden dining table.",
+                    price: 300,
+                    location: "Chicago",
+                    mobile: "555-555-5555",
+                    category: "furniture",
+                    image: "dinning_table.jpg"
+                },
+                {
+                    name: "Sofa Set",
+                    description: "Comfortable and modern sofa set.",
+                    price: 700,
+                    location: "Houston",
+                    mobile: "666-666-6666",
+                    category: "furniture",
+                    image: "sofaset.jpg"
+                },
+                {
+                    name: "T-shirt",
+                    description: "Casual cotton T-shirt.",
+                    price: 20,
+                    location: "Miami",
+                    mobile: "444-444-4444",
+                    category: "clothing",
+                    image: "t-shirt.jpg"
+                },
+                {
+                    name: "Jeans",
+                    description: "Trendy denim jeans.",
+                    price: 50,
+                    location: "Seattle",
+                    mobile: "333-333-3333",
+                    category: "clothing",
+                    image: "jeans.jpg"
+                },
+                {
+                    name: "Smartwatch",
+                    description: "Feature-rich smartwatch with heart rate monitor.",
+                    price: 199,
+                    location: "Boston",
+                    mobile: "222-222-2222",
+                    category: "electronics",
+                    image: "smartwatch.png"
+                },
+                {
+                    name: "Coffee Table",
+                    description: "Elegant coffee table for your living room.",
+                    price: 150,
+                    location: "Philadelphia",
+                    mobile: "111-111-1111",
+                    category: "furniture",
+                    image: "coffeetable.jpg"
+                },
+                {
+                    name: "Armchair",
+                    description: "Cozy armchair for reading.",
+                    price: 250,
+                    location: "Austin",
+                    mobile: "777-777-7777",
+                    category: "furniture",
+                    image: "armchair.png"
+                },
+                {
+                    name: "Dress",
+                    description: "Beautiful summer dress.",
+                    price: 40,
+                    location: "Denver",
+                    mobile: "999-999-9999",
+                    category: "clothing",
+                    image: "dress.png"
+                },
+            ];
+
+            // Function to display products
+            const displayProducts = (filteredProducts) => {
+                productsGrid.innerHTML = '';
+
+                if (filteredProducts.length === 0) {
+                    productsGrid.innerHTML = '<p>No products found.</p>';
+                    return;
+                }
+
+                filteredProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+
+                    productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <p class="product-price">$${product.price}</p>
+                        <p class="product-location">Location: ${product.location}</p>
+                        <p class="product-mobile">Contact: ${product.mobile}</p>
+                        <button class="contact-owner" data-mobile="${product.mobile}">Contact Owner</button>
+                    `;
+
+                    // Add event listener for the "Contact Owner" button
+                    productCard.querySelector('.contact-owner').addEventListener('click', () => {
+                        alert(`Contact Owner: ${product.mobile}`);
+                    });
+
+                    productsGrid.appendChild(productCard);
+                });
+            };
+
+            // Filter products based on category
+            const filterProducts = () => {
+                const selectedCategory = categoryFilter.value;
+                const sortedProducts = [...products];
+
+                if (selectedCategory) {
+                    const filtered = sortedProducts.filter(product => product.category === selectedCategory);
+                    displayProducts(filtered);
+                } else {
+                    displayProducts(sortedProducts);
+                }
+            };
+
+            // Sort products based on price
+            const sortProducts = () => {
+                const order = sortOrder.value;
+                const sorted = [...products];
+
+                sorted.sort((a, b) => order === 'asc' ? a.price - b.price : b.price - a.price);
+                displayProducts(sorted);
+            };
+
+            // Event listeners for filters and sorting
+            categoryFilter.addEventListener('change', () => {
+                filterProducts();
+                sortProducts();
+            });
+
+            sortOrder.addEventListener('change', () => {
+                sortProducts();
+            });
+
+            // Initial display
+            displayProducts(products);
+        });
+    </script>
+</body>
+</html>

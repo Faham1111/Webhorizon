@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .user-info {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .user-info p {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .stat {
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            flex: 1;
+            margin: 0 10px;
+        }
+        .listed-products {
+            margin-top: 30px;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            transition: transform 0.2s;
+        }
+        .product:hover {
+            transform: scale(1.02);
+        }
+        .logout-btn {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Navbar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="#">Revibe</a>
+        </div>
+        <div class="navbar-center">
+            <a href="page.html">Home</a>
+            <a href="about.html">About</a>
+            <div class="dropdown">
+                <button class="dropbtn">Categories</button>
+                <div class="dropdown-content">
+                    <a href="products.html">Category 1</a>
+                    <a href="products.html">Category 2</a>
+                    <a href="products.html">Category 3</a>
+                </div>
+            </div>
+            <a href="sell.html">Sell</a>
+            <div class="search-container">
+                <input type="text" placeholder="Search..." class="search-input">
+            </div>
+        </div>
+        <div class="navbar-profile">
+            <a href="#"><img src="user.png" alt="Profile" /></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>User Profile</h2>
+        <div class="user-info">
+            <p><strong>Username:</strong> <span id="username"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat">
+                <h3 id="listed-products-count">0</h3>
+                <p>Listed Products</p>
+            </div>
+            <div class="stat">
+                <h3 id="sold-products-count">0</h3>
+                <p>Sold Products</p>
+            </div>
+            <div class="stat">
+                <h3 id="bought-products-count">0</h3>
+                <p>Bought Products</p>
+            </div>
+            <div class="stat">
+                <h3 id="money-earned">0</h3>
+                <p>Money Earned ($)</p>
+            </div>
+        </div>
+
+        <div class="listed-products">
+            <h3>Listed Products</h3>
+            <div id="products-list"></div>
+        </div>
+
+        <!-- Logout Button in Profile Section -->
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <h3>About Revibe</h3>
+                <p>Revibe is a site for people who want to buy and sell used products.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="page.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#"><img src="facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="instagram.png" alt="Instagram"></a>
+            </div>
+            <div class="footer-map">
+                <h3>Find Us Here</h3>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14759.319419861187!2d70.80010265!3d22.36005245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1727461180781!5m2!1sen!2sin" 
+                    width="250" 
+                    height="200" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 @revibe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Get current user information
+        const currentUser = localStorage.getItem('currentUser');
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Display username
+        document.getElementById('username').textContent = currentUser;
+
+        // Find user details to display
+        const userDetails = users.find(user => user.username === currentUser);
+        if (userDetails) {
+            document.getElementById('email').textContent = userDetails.email;
+        }
+
+        // Simulated data for stats and products (replace with real data if available)
+        document.getElementById('listed-products-count').textContent = '3'; // Example count
+        document.getElementById('sold-products-count').textContent = '1'; // Example count
+        document.getElementById('bought-products-count').textContent = '2'; // Example count
+        document.getElementById('money-earned').textContent = '100'; // Example amount
+
+        // Display listed products (example data)
+        const productsList = document.getElementById('products-list');
+        const exampleProducts = [
+            { name: 'Product 1', description: 'Description for product 1.' },
+            { name: 'Product 2', description: 'Description for product 2.' },
+            { name: 'Product 3', description: 'Description for product 3.' },
+        ];
+
+        exampleProducts.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.className = 'product';
+            productDiv.innerHTML = `<strong>${product.name}</strong><p>${product.description}</p>`;
+            productsList.appendChild(productDiv);
+        });
+
+        // Logout functionality
+        function logout() {
+            localStorage.removeItem('currentUser'); // Remove user from localStorage
+            window.location.href = 'login.html'; // Redirect to login page
+        }
+    </script>
+</body>
+</html>

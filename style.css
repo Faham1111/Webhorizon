@@ -1,0 +1,803 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2, h3 {
+    margin-right: 3px;;
+    color: #0056b3; /* Primary color for headings */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    letter-spacing: 0.5px; /* Slightly increased spacing */
+}
+
+p {
+    margin-right: 3px;
+    margin-bottom: 1em;
+    font-size: 1.1em; /* Slightly larger text */
+    line-height: 1.8; /* Increased line height for readability */
+    color: #555; /* Darker gray for better contrast */
+}
+
+/* Sticky Navbar */
+/* General Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+    border-radius: 10px; /* Rounded corners for modern look */
+    margin-top: 0; /* Remove unwanted margin */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Left: Navbar Logo */
+.navbar-logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-logo a:hover {
+    color: #ff6600; /* Hover effect */
+}
+
+/* Center: Navbar Links */
+.navbar-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.navbar-center a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar-center a:hover {
+    color: #ff6600; /* Hover effect for links */
+}
+
+/* Right: Profile Icon */
+.navbar-profile a img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%; /* Make the profile image round */
+}
+
+.navbar-profile a:hover img {
+    border: 2px solid #ff6600; /* Optional hover effect */
+}
+
+.sell-button {
+    padding: 10px 20px; /* Adjusted padding for the sell button */
+    background-color: #ff6600;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners for the button */
+    font-size: 16px; /* Reduced font size */
+}
+
+.sell-button:hover {
+    color: #ff6600;
+    border: 1px solid #ff6600; /* Change button border color on hover */
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    padding: 5px 10px;
+    font-size: 16px; /* Match font size with menu items */
+    border-radius: 20px; /* Rounded search bar */
+    border: 1px solid #ccc;
+    outline: none;
+    height: 16px; /* Set height to align with other items */
+}
+
+.search-input:focus {
+    border-color: #ff6600;
+}
+
+/* Category Banners */
+.slider-container {
+    position: relative;
+    margin-top: 30px;
+    overflow: hidden;
+    width: 100%;
+    height: 300px; /* Reduced height of the slider container */
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%; /* Set the height to 100% of the container */
+    object-fit: cover; /* Maintain aspect ratio and fill the container */
+}
+
+/* Dropdown Button */
+/* Dropdown Button */
+.dropbtn {
+    background-color: #333; /* Same as navbar background */
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px; /* Match with navbar style */
+}
+
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change color of dropdown button on hover */
+.dropdown:hover .dropbtn {
+    background-color: #ff6600; /* Optional hover effect for dropdown button */
+}
+
+/* Slider styles */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Top products */
+.top-products {
+    padding: 10px;
+    text-align: center;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-card {
+    flex: 1 1 200px;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonials-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.testimonial {
+    flex: 1 1 300px;
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.testimonial h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Newsletter Section */
+.newsletter {
+    background-color: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px 0; /* Space before footer */
+}
+
+.newsletter h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.newsletter button {
+    padding: 10px;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: #fff;
+    color: #ff6600;
+    border: 1px solid #ff6600;
+}
+
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+    font-size: 16px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-container div {
+    width: 250px;
+    margin: 10px 0;
+}
+
+.footer h3 {
+    color: #ff6600;
+    margin-bottom: 15px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-about p, .footer-newsletter p {
+    margin-bottom: 15px;
+}
+
+/* Quick Links */
+.footer-links ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: white;
+}
+
+/* Newsletter Form */
+.footer-newsletter form {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-newsletter input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.footer-newsletter button {
+    padding: 10px;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.footer-newsletter button:hover {
+    background-color: #fff;
+    color: #ff6600;
+    border: 1px solid #ff6600;
+}
+
+/* Social Media Links */
+.footer-social a {
+    margin-right: 15px;
+    color: white;
+}
+
+.footer-social img {
+    width: 24px; /* Adjust icon size */
+    height: auto;
+}
+
+/* Map Container */
+.footer-map {
+    margin-top: 20px;
+    width: 100%;
+    height: 200px; /* Adjust as needed */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .category-banners {
+        flex-direction: column;
+    }
+
+    .category-banner {
+        width: 100%; /* Full width on mobile */
+    }
+
+    .navbar {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Stack footer items */
+        align-items: center; /* Center footer items */
+    }
+
+    .footer-container div {
+        width: auto; /* Auto width on mobile */
+    }
+}
+
+/* Chat Modal */
+/* Floating Chat Button */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chat-button button {
+    padding: 15px;
+    background-color: #ff6600;
+    border: none;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow */
+    transition: background-color 0.3s ease;
+}
+
+.chat-button button:hover {
+    background-color: #ff3300;
+}
+
+/* Chat Modal */
+.chat-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Chat Content */
+.chat-content {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    position: relative;
+}
+
+/* Chat Header */
+.chat-header {
+    background-color: #ff6600;
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.chat-header .chat-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.chat-header .close {
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Chat Messages */
+.chat-messages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f1f1f1;
+}
+
+.chat-messages p {
+    margin: 5px 0;
+    padding: 8px;
+    background-color: #e1e1e1;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.chat-messages .user-message {
+    background-color: #ff6600;
+    color: white;
+    align-self: flex-end;
+}
+
+/* Chat Input Section */
+.chat-input-container {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.chat-input-container input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.chat-input-container button {
+    padding: 10px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chat-input-container button:hover {
+    background-color: #ff3300;
+}
+
+/* Animations for Chat Modal */
+.chat-modal.show {
+    display: block;
+    opacity: 1;
+    bottom: 100px;
+}
+
+.chat-modal.hide {
+    opacity: 0;
+    bottom: 80px;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 80px; /* Increase this value to move it above the chat button */
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    display: none; /* Hidden initially */
+    z-index: 1000; /* Ensures it's on top of other elements */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.back-to-top img {
+    width: 24px; /* Customize the size of the arrow icon */
+    height: 24px;
+}
+
+.back-to-top:hover {
+    background-color: white; /* Change background on hover */
+    color: #ff6600; /* Match hover color */
+    border: 1px solid #ff6600;
+    transform: translateY(-5px); /* Adds a little animation on hover */
+}
+
+/* Show the button when scrolled down */
+.show-back-to-top {
+    display: block;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+    }
+}
+
+/* Main Content Styles */
+.main-content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Form Styles */
+.sell-form {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: 700;
+    margin-top: 10px;
+    display: block;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+input[type="tel"],
+textarea {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+input[type="file"] {
+    border: none;
+}
+
+textarea {
+    height: 100px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Drag and Drop Area Styles */
+.drag-drop-area {
+    border: 2px dashed #007bff;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.drag-drop-area.hover {
+    background-color: #e9f7ff;
+}
+
+.drag-drop-area span {
+    color: #007bff;
+    font-weight: 500;
+}
+
+/* Hide the actual file input */
+input[type="file"] {
+    display: none;
+}
+
+/* Message Styles */
+.message {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Product Grid Styles */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px; /* Space between grid items */
+    padding: 20px; /* Padding around the grid */
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-name {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.product-description {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.product-location, .product-mobile {
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+
+
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-image img {
+    width: 100%;
+    height: 150px; /* Set a fixed height for images */
+    object-fit: cover; /* Cover the image properly */
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info h2 {
+    font-size: 1.25em;
+    margin: 10px 0;
+}
+
+.description {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.price {
+    font-size: 1.1em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.contact-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-button:hover {
+    background-color: #45a049;
+}
