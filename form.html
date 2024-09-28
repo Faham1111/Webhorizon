@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create Account</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #3b82f6, #9333ea);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 20px;
+            width: 800px;
+            max-width: 90%;
+            overflow: hidden; /* Prevent overflow */
+        }
+        .left {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .left img {
+            width: 200px;
+            height: auto;
+        }
+        .left p {
+            color: white;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .left p span {
+            font-weight: 600;
+        }
+        .right {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .right h2 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .right .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .right .tabs button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px; /* Space between buttons */
+            min-width: 150px; /* Set a minimum width for consistency */
+        }
+        .right .tabs button:last-child {
+            margin-right: 0; /* No margin for the last button */
+        }
+        .right .tabs button.active {
+            background: black;
+            color: white;
+        }
+        .right .tabs button.inactive {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+        .right .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .right .input-group input {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 16px;
+            height: 50px; /* Set a consistent height */
+            box-sizing: border-box; /* Include padding in width */
+        }
+        .right .input-group i {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            color: white;
+        }
+        .right .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .right .remember-me input {
+            margin-right: 10px;
+        }
+        .right .remember-me label {
+            color: white;
+            font-size: 14px;
+        }
+        .right .submit-btn {
+            background: black;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .right .social-icons {
+            display: flex;
+            justify-content: space-around;
+        }
+        .right .social-icons a {
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <p>
+                You Are Few Minutes Away To Get the Best Products in the Market!!
+                <span>Revibe</span>
+            </p>
+        </div>
+        <div class="right">
+            <div class="tabs">
+                <button id="signInBtn" class="active">Sign In</button>
+                <button id="signUpBtn" class="inactive">Sign Up</button>
+            </div>
+            <div id="signInForm">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input id="signInEmail" placeholder="Email" type="email"/>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input id="signInPassword" placeholder="Password" type="password"/>
+                </div>
+                <div class="remember-me">
+                    <input id="remember-me" type="checkbox"/>
+                    <label for="remember-me">Remember Me</label>
+                </div>
+                <button class="submit-btn" id="signInButton">Sign In</button>
+            </div>
+            <div id="signUpForm" style="display: none;">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input id="signUpEmail" placeholder="Email" type="email"/>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input id="signUpUsername" placeholder="Username" type="text"/>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input id="signUpPassword" placeholder="Password" type="password"/>
+                </div>
+                <button class="submit-btn" id="signUpButton">Sign Up</button>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Predefined user credentials
+        const predefinedUser = {
+            email: 'faham@example.com', // Set a specific email
+            username: 'faham',
+            password: 'faham123'
+        };
+
+        // Store users in an array
+        const users = [predefinedUser]; // Add the predefined user to the users array
+
+        document.getElementById('signInBtn').onclick = function() {
+            document.getElementById('signInForm').style.display = 'block';
+            document.getElementById('signUpForm').style.display = 'none';
+            document.getElementById('signInBtn').classList.add('active');
+            document.getElementById('signInBtn').classList.remove('inactive');
+            document.getElementById('signUpBtn').classList.remove('active');
+            document.getElementById('signUpBtn').classList.add('inactive');
+        };
+
+        document.getElementById('signUpBtn').onclick = function() {
+            document.getElementById('signInForm').style.display = 'none';
+            document.getElementById('signUpForm').style.display = 'block';
+            document.getElementById('signUpBtn').classList.add('active');
+            document.getElementById('signUpBtn').classList.remove('inactive');
+            document.getElementById('signInBtn').classList.remove('active');
+            document.getElementById('signInBtn').classList.add('inactive');
+        };
+
+        document.getElementById('signInButton').onclick = function() {
+            const email = document.getElementById('signInEmail').value;
+            const password = document.getElementById('signInPassword').value;
+
+            // Check if the user exists
+            const user = users.find(u => u.email === email && u.password === password);
+            if (user) {
+                // Redirect to page.html if successful
+                window.location.href = 'page.html';
+            } else {
+                alert('Invalid email or password. Please try again.');
+            }
+        };
+
+        document.getElementById('signUpButton').onclick = function() {
+            const email = document.getElementById('signUpEmail').value;
+            const username = document.getElementById('signUpUsername').value;
+            const password = document.getElementById('signUpPassword').value;
+
+            // Check if the user already exists
+            const userExists = users.find(u => u.email === email);
+            if (userExists) {
+                alert('Email already exists. Please log in or use a different email.');
+            } else {
+                // Save the new user
+                users.push({ email, username, password });
+                alert('Account created successfully! You can now sign in.');
+                document.getElementById('signInBtn').click(); // Switch to sign-in tab
+            }
+        };
+    </script>
+</body>
+</html>
